@@ -1,108 +1,36 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.Windows;
-// public class PlayerMove : MonoBehaviour
-// {
-//     public float moveSpeed = 5f;
-//     public Rigidbody2D rb;
-//     public Animator ain;
-//     // Lưu lại hướng di chuyển
-//     public Vector3 movement;
-//     private float x;
-//     private float y;
-//     private bool moving;
-//     void Start()
-//     {
-//     rb = GetComponent<Rigidbody2D>();
-//     }
-//     void Update()
-//     {
-//         movement.x = Input.GetAxis("Horizontal");
-//         movement.y = Input.GetAxis("Vertical"); 
-//         transform.position += movement * moveSpeed * Time.deltaTime;
-
-//         if(movement.x != 0){
-//             if(movement.x > 0){
-//                 transform.localScale = new Vector3(1,1,0);
-//             }else{
-//                 transform.localScale = new Vector3(-1,1,0);
-//             }
-//         }
-
-//         // Animate();
-//     }
-//     // private void Animate(){
-//     //     if(Input.magnitude > 0.1f || Input.magnitude < -0.1f){
-//     //         moving = true;
-//     //     }else{
-//     //         moving = false;
-//     //     }
-//     //     if(moving){
-//     //         ain.SetFloat("x",x);
-//     //         ain.SetFloat("y",y);
-//     //     }
-
-//     //     ain.SetBool("Moving",moving);
-//     // }
-// }
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
-    public Animator ain;
+    private float moveSpeed = 5f;
+    private Rigidbody2D rb;
+    private Animator animator;
     // Lưu lại hướng di chuyển
-    public Vector3 movement;
-    private float x;
-    private float y;
-    private bool moving;
-    
+    private Vector2 movement;
+ 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        ain = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
-    
-    void Update()
-    {
-        movement.x = UnityEngine.Input.GetAxis("Horizontal");
-        movement.y = UnityEngine.Input.GetAxis("Vertical"); 
-        transform.position += movement * moveSpeed * Time.deltaTime;
+    void Update(){
+        rb.velocity = movement * moveSpeed;
+    }
 
-        if(movement.x != 0){
-            if(movement.x > 0){
-                transform.localScale = new Vector3(1,1,0);
-            }else{
-                transform.localScale = new Vector3(-1,1,0);
-            }
+    public void OnMove(InputAction.CallbackContext context){
+        movement = context.ReadValue<Vector2>();
+        Debug.Log("Movement input: " + movement);
+
+        animator.SetBool("isWalking", true);
+
+        if(context.canceled){
+            animator.SetBool("isWalking", false);
+            animator.SetFloat("X", movement.x);
+            animator.SetFloat("Y", movement.y);
         }
-
-        Animate();
+        movement = context.ReadValue<Vector2>();
+        animator.SetFloat("InputX", movement.x);
+        animator.SetFloat("InputY", movement.y);
     }
-    
-   private void Animate()
-{
-    if (movement.magnitude > 0.1f)
-    {
-        moving = true;
-    }
-    else
-    {
-        moving = false;
-    }
-
-    if (moving)
-    {
-        ain.SetFloat("x", movement.x);
-        ain.SetFloat("y", movement.y);
-    }
-
-    ain.SetBool("Moving", moving);
-}
-
 }
