@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPC : MonoBehaviour
+public class NPC1 : MonoBehaviour
 {
     
     [SerializeField] private GameObject Panel;
