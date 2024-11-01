@@ -20,7 +20,6 @@ public class PlayerMove : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context){
         movement = context.ReadValue<Vector2>();
-        Debug.Log("Movement input: " + movement);
 
         animator.SetBool("isWalking", true);
 
