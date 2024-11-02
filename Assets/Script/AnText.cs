@@ -9,6 +9,7 @@ public class AnText : MonoBehaviour
     public GameObject textObject2;
     public GameObject textObject3;
     public GameObject textObject4;
+    public GameObject textObject5;
     public PlayableDirector playableDirector;
     void Start()
     {
@@ -16,6 +17,7 @@ public class AnText : MonoBehaviour
         textObject2.SetActive(false);
         textObject3.SetActive(false);
         textObject4.SetActive(false);
+        textObject5.SetActive(false);
 
         playableDirector.played += OnPlayableDirectorPlayed; // Đăng ký sự kiện
         playableDirector.stopped += OnPlayableDirectorStopped;
@@ -28,6 +30,7 @@ public class AnText : MonoBehaviour
         textObject2.SetActive(true);
         textObject3.SetActive(true);
         textObject4.SetActive(true);
+        textObject5.SetActive(true);
     }
 
     private void OnPlayableDirectorStopped(PlayableDirector director)
@@ -37,6 +40,7 @@ public class AnText : MonoBehaviour
         textObject2.SetActive(false);
         textObject3.SetActive(false);
         textObject4.SetActive(false);
+        textObject5.SetActive(false);
     }
 
 }

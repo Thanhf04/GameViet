@@ -1553,7 +1553,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Nh\u01B0ng khi b\u01B0\u1EDBc v\xE0o ng\xF4i \u0111\xECnh, chi\u1EBFc
-    \u0111\u1ED3ng h\u1ED3 c\u1ED5 b\u1ED5ng ph\xE1t s\xE1ng v\xE0 cu\u1ED1n anh
+    \u0111\u1ED3ng h\u1ED3 c\u1ED5 b\u1ED5ng ph\xE1t s\xE1ng v\xE0 cu\u1ED1n t\xF4i
     v\xE0o m\u1ED9t th\u1EBF gi\u1EDBi song song..."
 --- !u!222 &1685451439
 CanvasRenderer:
