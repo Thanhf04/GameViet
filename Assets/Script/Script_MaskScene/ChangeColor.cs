@@ -37,6 +37,21 @@ public class ChangeColor : MonoBehaviour
     {
         SetColor(new Color(0, 0, 0, 0)); // Thiết lập màu trong suốt
     }
+    public void SetBlack()
+    {
+        SetColor(Color.black); // Gọi hàm SetColor với màu đen
+    }
+
+    public void SetOrange()
+    {
+        SetColor(new Color(1.0f, 0.5f, 0.0f)); // Gọi hàm SetColor với màu cam
+    }
+
+    public void SetPurple()
+    {
+        SetColor(new Color(0.5f, 0.0f, 0.5f)); // Gọi hàm SetColor với màu tím
+    }
+
 
     // Hàm thực hiện việc cập nhật màu cho Mask
     private void SetColor(Color color)
@@ -72,7 +87,10 @@ public class ChangeColor : MonoBehaviour
         if (color == Color.blue) return "Xanh dương";
         if (color == Color.cyan) return "Xanh nhạt";
         if (color == Color.yellow) return "Vàng";
-        if (color.a == 0) return "Không màu"; // Kiểm tra nếu là màu trong suốt
-        return "Màu không xác định"; // Nếu không nhận diện được màu
+        if (color == Color.black) return "Đen";
+        if (color == new Color(1.0f, 0.5f, 0.0f)) return "Cam";
+        if (color == new Color(0.5f, 0.0f, 0.5f)) return "Tím";
+        if (color.a == 0) return "Không màu";
+        return "Màu không xác định";
     }
 }
