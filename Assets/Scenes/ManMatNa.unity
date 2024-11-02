@@ -2422,7 +2422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Game: {fileID: 1148043000}
-  PanelGame: {fileID: 1148043000}
+  PanelGame: {fileID: 1722070524}
   PanelSuccess: {fileID: 427173462}
   BtnOpenShop: {fileID: 0}
   BtnCloseShop: {fileID: 0}
@@ -2464,8 +2464,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 112808503
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -10648698, guid: 580289257d42edf41b9df6b14e6d1e18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2553,7 +2553,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.024275422, y: 0.09709883}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2564,7 +2564,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.87}
+  m_Size: {x: 1.1572526, y: 1.1903067}
   m_EdgeRadius: 0
 --- !u!1 &496191812
 GameObject:
@@ -4896,7 +4896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1057267295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5017,7 +5017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 413.61, y: 95.99999}
+  m_AnchoredPosition: {x: 413.61, y: 18}
   m_SizeDelta: {x: 364.47, y: 422.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1103388576
@@ -5058,8 +5058,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1625931061
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
@@ -5129,7 +5129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1148043001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5300,7 +5300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 0}
+  m_AnchoredPosition: {x: 0.00000013535, y: 0}
   m_SizeDelta: {x: 594.64, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157381383
@@ -6484,7 +6484,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -1625931061
+  m_SortingLayerID: 112808503
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &1522083559
