@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ManAmThuc.unity
     guid: 51417d03e18a6324cbf339867c102037
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: a0b2d5af013c2fc4996163ad19aa460c, type: 2}
