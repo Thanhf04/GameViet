@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CongratulationPanel : MonoBehaviour
 {
@@ -19,12 +20,15 @@ public class CongratulationPanel : MonoBehaviour
     {
         congratulationPanel.SetActive(true); // Hiện panel chúc mừng
         StartCoroutine(HideCongratulationPanelAfterDelay(2f)); // Tắt panel sau 2 giây
+        SceneManager.LoadScene("Man1");
     }
 
     private IEnumerator HideCongratulationPanelAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay); // Đợi trong 2 giây
         congratulationPanel.SetActive(false); // Tắt panel chúc mừng
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
