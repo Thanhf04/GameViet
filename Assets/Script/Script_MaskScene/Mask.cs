@@ -9,6 +9,10 @@ public class Mask : MonoBehaviour
     public Color selectedColor = Color.red;
     private SpriteRenderer spriteRenderer;
 
+    // Biến lưu số pixel đã tô màu và số lượng tối đa của khu vực cần tô
+    private int filledPixelCount = 0;
+    private int totalTargetPixels = 0;
+
     void Start()
     {
         // Khởi tạo texture từ ảnh gốc
@@ -19,6 +23,15 @@ public class Mask : MonoBehaviour
         // Gán coloringImage vào SpriteRenderer của đối tượng
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Sprite.Create(coloringImage, new Rect(0, 0, coloringImage.width, coloringImage.height), new Vector2(0.5f, 0.5f));
+
+        // Tính toán số lượng pixel cần tô màu
+        foreach (Color pixelColor in coloringImage.GetPixels())
+        {
+            if (pixelColor != selectedColor && pixelColor.a > 0) // Chỉ tính các pixel không phải là trong suốt và chưa được tô
+            {
+                totalTargetPixels++;
+            }
+        }
     }
 
     void Update()
@@ -39,8 +52,15 @@ public class Mask : MonoBehaviour
 
                 // Lấy màu tại tọa độ (x, y) và tô màu
                 Color targetColor = coloringImage.GetPixel(x, y);
+                filledPixelCount = 0; // Reset bộ đếm pixel
                 FloodFill(x, y, targetColor, selectedColor);
                 coloringImage.Apply(); // Cập nhật Texture sau khi tô màu
+
+                // Kiểm tra nếu toàn bộ vùng đã được tô màu thành công
+                if (filledPixelCount >= totalTargetPixels)
+                {
+                    Debug.Log("Tô màu thành công toàn bộ khu vực!");
+                }
             }
         }
     }
@@ -69,6 +89,7 @@ public class Mask : MonoBehaviour
             if (coloringImage.GetPixel(px, py) == targetColor)
             {
                 coloringImage.SetPixel(px, py, fillColor);
+                filledPixelCount++; // Tăng số pixel đã tô màu
 
                 if (pixels.Count < maxPixels)
                 {
