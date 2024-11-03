@@ -5,21 +5,34 @@ using UnityEngine.UI;
 public class NPC : MonoBehaviour
 {
     [SerializeField] private GameObject Game;
-    [SerializeField] private GameObject Panel;
+    [SerializeField] private GameObject PanelGame;
+    [SerializeField] private GameObject PanelSuccess;
     [SerializeField] private Button BtnOpenShop;
     [SerializeField] private Button BtnCloseShop;
 
     private void OnMouseDown()
     {
-        Panel.SetActive(true);
+        if (!Game.activeSelf)
+        {
+            PanelGame.SetActive(true);
+        }
     }
     public void OpenShop()
     {
         Game.SetActive(true);
-        Panel.SetActive(false);
+        PanelGame.SetActive(false);
     }
     public void CloseShop()
     {
-        Panel.SetActive(false);
+        Game.SetActive(false);
+        PanelSuccess.SetActive(false);
+    }
+    public void ClosePanel()
+    {
+        PanelGame.SetActive(false);
+    }
+    public void ClickButtonSuccess()
+    {
+        PanelSuccess.SetActive(true);
     }
 }
