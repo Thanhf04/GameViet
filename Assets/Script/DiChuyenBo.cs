@@ -14,6 +14,8 @@ public class DiChuyenBo : MonoBehaviour
     public GameObject panelStartGame;
     public GameObject panelKetThuc;
 
+    private bool isGrounded = false; // Biến kiểm tra khi nhân vật đang trên mặt đất
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,10 +40,12 @@ public class DiChuyenBo : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Kiểm tra phím nhảy và chỉ nhảy nếu đang trên mặt đất
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetBool("isJump", true);
+            isGrounded = false; // Sau khi nhảy, đặt isGrounded thành false
         }
     }
 
@@ -49,6 +53,7 @@ public class DiChuyenBo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("NenDat"))
         {
+            isGrounded = true; // Khi chạm NenDat, cho phép nhảy lại
             animator.SetBool("isJump", false);
         }
 
