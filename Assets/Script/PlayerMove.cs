@@ -16,6 +16,11 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         
+        // Khôi phục vị trí của Player nếu có vị trí đã lưu
+        if (PlayerDataManager.Instance != null)
+        {
+            transform.position = PlayerDataManager.Instance.playerPosition;
+        }
     }
     void Update(){
         rb.velocity = movement * moveSpeed;
